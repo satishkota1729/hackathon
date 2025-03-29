@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Form - HCLTech</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: #0d47a1;
+            border-radius: 10px 10px 0 0;
+        }
+        .header img {
+            width: 150px;
+            margin-bottom: 10px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #ffffff;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background: #333;
+            color: #fff;
+        }
+        .submit-btn {
+            background: #0d47a1;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/HCLTech_Logo.svg" alt="HCLTech Logo">
+            <h1>HCLTech - Claim Form</h1>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="ssn">SSN Number</label>
+                <input type="text" id="ssn" name="ssn" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="policy">Policy Number</label>
+                <input type="text" id="policy" name="policy" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="driverName">Driver Name</label>
+                <input type="text" id="driverName" name="driverName">
+            </div>
+            <div class="form-group">
+                <label for="license">Driving License Number</label>
+                <input type="text" id="license" name="license" required>
+            </div>
+            <div class="form-group">
+                <label for="loan">Is Vehicle Under Loan?</label>
+                <select id="loan" name="loan">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mileage">Mileage Run</label>
+                <input type="number" id="mileage" name="mileage">
+            </div>
+            <div class="form-group">
+                <label for="claimAmount">Claim Amount</label>
+                <input type="number" step="0.01" id="claimAmount" name="claimAmount">
+            </div>
+            <div class="form-group">
+                <label for="claimDate">Claim Date</label>
+                <input type="date" id="claimDate" name="claimDate" required>
+            </div>
+            <div class="full-width">
+                <label>Upload Document:</label>
+                <input type="file" id="docs" name="file" accept=".pdf,.jpg,.png">
+            </div>
+            <button type="submit" class="submit-btn">Submit Claim</button>
+        </form>
+    </div>
+</body>
+<script>
+    function fileToBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = event => resolve(event.target.result);
+            reader.onerror = error => reject(error);
+            reader.readAsDataURL(file);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const claimForm = document.getElementById("claimForm");
+        const fileInput = document.getElementById("docs");
+
+        if (fileInput) {
+            fileInput.addEventListener('change', function() {
+                console.log("Files selected:", this.files.length);
+            });
+        }
+
+        claimForm.addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+
+            const claimData = {
+                PolicyNumber: document.getElementById("policyNumber").value,
+                ssn: document.getElementById("ssnNumber").value,
+                Name: document.getElementById("name").value,
+                Address: document.getElementById("address").value,
+                Email: document.getElementById("email").value,
+                PhoneNumber: document.getElementById("phoneNumber").value,
+                Driver_Name: document.getElementById("Driver_Name").value,
+                Driver_License_Numer: document.getElementById("Driver_License_Numer").value,
+                Is_Vehicle_Under_Loan: document.getElementById("Is_Vehicle_Under_Loan").value === "Y",
+                Average_Km_Run_Per_year: parseInt(document.getElementById("Average_Km_Run_Per_year").value) || 0,
+                Vehicle_Usage: document.getElementById("Vehicle_Usage").value,
+                Vehicle_Manufacture: document.getElementById("Vehicle_Manufacture").value,
+                Vehicle_Model: document.getElementById("Vehicle_Model").value,
+                Milage_Run: parseInt(document.getElementById("Milage_Run").value) || 0,
+                Claim_Amount: parseInt(document.getElementById("Claim_Amount").value) || 0,
+                Previous_Claim_Numbers: document.getElementById("Previous_Claim_Numbers").value
+            };
+
+
+            if (fileInput.files.length > 0) {
+                try {
+                    claimData.docs = await fileToBase64(fileInput.files[0]); // Convert file to base64
+                } catch (error) {
+                    console.error("Error converting file:", error);
+                    alert("Error uploading file. Please try again.");
+                    return;
+                }
+            }
+
+            try {
+                const response = await fetch("http://localhost:8090/claim/start", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert("Form Submitted Successfully!\n\n" + JSON.stringify(claimData));
+                    claimForm.reset();
+                } else {
+                    alert("Submission failed. Please try again.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("An error occurred. Please try again.");
+            }
+        });
+    });
+</script>
+
+</html>
