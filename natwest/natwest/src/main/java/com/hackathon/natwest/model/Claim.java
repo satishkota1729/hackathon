@@ -62,4 +62,149 @@ public class Claim {
 
     @Column(name = "claim_date", nullable = false)
     private LocalDate claimDate;
+
+
+    public Long getClaimId() {
+        return claimId;
+    }
+
+    public void setClaimId(Long claimId) {
+        this.claimId = claimId;
+    }
+
+    public String getSsnNumber() {
+        return ssnNumber;
+    }
+
+    public void setSsnNumber(String ssnNumber) {
+        this.ssnNumber = ssnNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPolicyNumber() {
+        return policyNumber;
+    }
+
+    public void setPolicyNumber(String policyNumber) {
+        this.policyNumber = policyNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getDriverName() {
+        return driverName;
+    }
+
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
+    }
+
+    public String getDrivingLicenceNumber() {
+        return drivingLicenceNumber;
+    }
+
+    public void setDrivingLicenceNumber(String drivingLicenceNumber) {
+        this.drivingLicenceNumber = drivingLicenceNumber;
+    }
+
+    public Boolean getVehicleUnderLoan() {
+        return isVehicleUnderLoan;
+    }
+
+    public void setVehicleUnderLoan(Boolean vehicleUnderLoan) {
+        isVehicleUnderLoan = vehicleUnderLoan;
+    }
+
+    public Integer getAverageKmRunPerYear() {
+        return averageKmRunPerYear;
+    }
+
+    public void setAverageKmRunPerYear(Integer averageKmRunPerYear) {
+        this.averageKmRunPerYear = averageKmRunPerYear;
+    }
+
+    public String getVehicleUsage() {
+        return vehicleUsage;
+    }
+
+    public void setVehicleUsage(String vehicleUsage) {
+        this.vehicleUsage = vehicleUsage;
+    }
+
+    public String getVehicleManufacturer() {
+        return vehicleManufacturer;
+    }
+
+    public void setVehicleManufacturer(String vehicleManufacturer) {
+        this.vehicleManufacturer = vehicleManufacturer;
+    }
+
+    public String getVehicleModel() {
+        return vehicleModel;
+    }
+
+    public void setVehicleModel(String vehicleModel) {
+        this.vehicleModel = vehicleModel;
+    }
+
+    public Integer getMileageRun() {
+        return mileageRun;
+    }
+
+    public void setMileageRun(Integer mileageRun) {
+        this.mileageRun = mileageRun;
+    }
+
+    public Double getClaimAmount() {
+        return claimAmount;
+    }
+
+    public void setClaimAmount(Double claimAmount) {
+        this.claimAmount = claimAmount;
+    }
+
+    public String getPreviousClaimNumbers() {
+        return previousClaimNumbers;
+    }
+
+    public void setPreviousClaimNumbers(String previousClaimNumbers) {
+        this.previousClaimNumbers = previousClaimNumbers;
+    }
+
+    public LocalDate getClaimDate() {
+        return claimDate;
+    }
+
+    public void setClaimDate(LocalDate claimDate) {
+        this.claimDate = claimDate;
+    }
 }
