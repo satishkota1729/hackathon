@@ -1,0 +1,42 @@
+{
+  "components": [
+    {
+      "text": "# Vehicle Insurance Claim Detrails",
+      "type": "text",
+      "layout": {
+        "row": "Row_1rwftsu",
+        "columns": null
+      },
+      "id": "Field_1ad7ukc"
+    },
+    {
+      "label": "Claim Status",
+      "values": [
+        {
+          "label": "Approved",
+          "value": "Approved"
+        },
+        {
+          "label": "Rejected",
+          "value": "Rejected"
+        }
+      ],
+      "type": "radio",
+      "layout": {
+        "row": "Row_0k5hx5z",
+        "columns": null
+      },
+      "id": "Field_0p4feh2",
+      "key": "ClaimStatus"
+    }
+  ],
+  "type": "default",
+  "id": "claimStatus",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.6.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.33.1"
+  },
+  "schemaVersion": 18
+}

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1d4neof" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.33.1" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.6.0">
+  <decision id="Approver_Check" name="Approver_Check">
+    <decisionTable id="DecisionTable_085cd9o">
+      <input id="Input_1" label="Amount">
+        <inputExpression id="InputExpression_1" typeRef="number">
+          <text>Claim_Amount</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1sr6ap5" label="Amount">
+        <inputExpression id="LiteralExpression_0767vng" typeRef="number">
+          <text>Claim_Amount</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Approver" name="role" typeRef="string">
+        <outputValues id="UnaryTests_165lols">
+          <text>"Senior Manager","General Manager","Director","Sr.Director"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0lobpep">
+        <inputEntry id="UnaryTests_08v9dhq">
+          <text>&lt;5000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07z9rm0">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qihi0l">
+          <text>"Senior_Manager"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0n3kcsg">
+        <inputEntry id="UnaryTests_16o479a">
+          <text>&gt;5001</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cmx5eu">
+          <text>&lt; 10000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jz6gur">
+          <text>"General_Manager"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kn7fq6">
+        <inputEntry id="UnaryTests_18fxll3">
+          <text>&gt;= 10001</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ifonwf">
+          <text>&lt;= 50000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09chjre">
+          <text>"Director"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18xg047">
+        <inputEntry id="UnaryTests_0ivc81q">
+          <text>&gt;=50001</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_038m0ue">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0p5pbpk">
+          <text>"Sr.Director"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Approver_Check">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
